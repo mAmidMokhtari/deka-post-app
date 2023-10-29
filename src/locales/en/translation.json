@@ -24,6 +24,10 @@
       "save": "Save Changes",
       "english": "English",
       "farsi": "Farsi"
+    },
+    "notFound": {
+      "notFound": "The page not found.",
+      "returnText": "Return Home"
     }
     }
   }

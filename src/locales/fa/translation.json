@@ -7,7 +7,7 @@
       "profile": "حساب کاربری"
     },
   "dashboard": {
-      "good morning,": "صبح بخیر، ",
+      "good morning": "صبح بخیر، ",
       "user": "کاربر"
   },
   "todo": {
@@ -24,6 +24,10 @@
     "save": "ذخیره",
     "english": "انگلیسی",
     "farsi": "فارسی"
+  },
+  "notFound": {
+    "notFound": "صفحه مورد نظر پیدا نشد.",
+    "returnText": "بازگشت به صفحه‌ی اصلی"
   }
   }
 }

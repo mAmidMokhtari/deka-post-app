@@ -24,9 +24,9 @@ export const useData = () => {
       icon: <DashboardIcon />,
     },
     {
-      name: t("mainLayout.sidebar.profile"),
-      path: PROFILE_ROUTE,
-      icon: <PersonIcon />,
+      name: t("mainLayout.sidebar.todo"),
+      path: TODO_ROUTE,
+      icon: <PlaylistAddCheckIcon />,
     },
     {
       name: t("mainLayout.sidebar.weather"),
@@ -34,9 +34,9 @@ export const useData = () => {
       icon: <CloudIcon />,
     },
     {
-      name: t("mainLayout.sidebar.todo"),
-      path: TODO_ROUTE,
-      icon: <PlaylistAddCheckIcon />,
+      name: t("mainLayout.sidebar.profile"),
+      path: PROFILE_ROUTE,
+      icon: <PersonIcon />,
     },
   ];
 

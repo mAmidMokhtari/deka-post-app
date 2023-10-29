@@ -2,20 +2,19 @@ import { FC } from "react";
 
 // constants
 import { HOME_ROUTE } from "constants/routes";
+import { useTranslation } from "react-i18next";
 // hooks
-import useText from "hooks/useText";
 import { Link } from "react-router-dom";
 
 // mui
 import { Grid, Typography } from "@mui/material";
 
 import { useStyles } from "./style";
-import { texts } from "./texts";
 
 interface INotFoundProps {}
 
 const NotFound: FC<INotFoundProps> = () => {
-  const { TX } = useText();
+  const { t } = useTranslation();
   const { classes } = useStyles();
   return (
     <Grid
@@ -43,12 +42,12 @@ const NotFound: FC<INotFoundProps> = () => {
 
       <Grid item textAlign="center">
         <Typography variant="h1" component="p">
-          {TX(texts.notFound)}
+          {t("mainLayout.notFound.notFound")}
         </Typography>
 
         <Link to={HOME_ROUTE} className={classes.link}>
           <Typography variant="h3" component="p">
-            {TX(texts.returnText)}
+            {t("mainLayout.notFound.returnText")}
           </Typography>
         </Link>
       </Grid>
