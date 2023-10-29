@@ -5,6 +5,7 @@ import {
   TODO_ROUTE,
   WEATHER_ROUTE,
 } from "constants/routes";
+import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 
 import CloudIcon from "@mui/icons-material/Cloud";
@@ -14,25 +15,26 @@ import PlaylistAddCheckIcon from "@mui/icons-material/PlaylistAddCheck";
 
 export const useData = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const menuItems = [
     {
-      name: "dashboard",
+      name: t("mainLayout.sidebar.dashboard"),
       path: DASHBOARD_ROUTE,
       icon: <DashboardIcon />,
     },
     {
-      name: "profile",
+      name: t("mainLayout.sidebar.profile"),
       path: PROFILE_ROUTE,
       icon: <PersonIcon />,
     },
     {
-      name: "weather",
+      name: t("mainLayout.sidebar.weather"),
       path: WEATHER_ROUTE,
       icon: <CloudIcon />,
     },
     {
-      name: "todo",
+      name: t("mainLayout.sidebar.todo"),
       path: TODO_ROUTE,
       icon: <PlaylistAddCheckIcon />,
     },
