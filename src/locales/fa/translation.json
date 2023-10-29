@@ -1,0 +1,29 @@
+{
+  "mainLayout": {
+    "sidebar": {
+      "dashboard": "داشبرد",
+      "todo": "کار ها",
+      "weather": "آب و هوا",
+      "profile": "حساب کاربری"
+    },
+  "dashboard": {
+      "good morning,": "صبح بخیر، ",
+      "user": "کاربر"
+  },
+  "todo": {
+    "todo list": "لیست کار ها",
+    "please insert note": "لطفا متن را وارد کنید..."
+  },
+  "weather": {
+    "enter city": "انتخاب شهر"
+  },
+  "profile": {
+    "name": "نام",
+    "theme": "تم",
+    "locale": "زبان",
+    "save": "ذخیره",
+    "english": "انگلیسی",
+    "farsi": "فارسی"
+  }
+  }
+}

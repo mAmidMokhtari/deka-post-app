@@ -1,0 +1,29 @@
+{
+    "mainLayout": {
+      "sidebar": {
+        "dashboard": "Dashboard",
+        "todo": "Todo",
+        "weather": "Weather",
+        "profile": "Profile"
+      },
+    "dashboard": {
+        "good morning,": "Good morning, ",
+        "user": "User"
+    },
+    "todo": {
+      "todo list": "Todo List",
+      "please insert note": "Please Insert Note..."
+    },
+    "weather": {
+      "enter city": "Enter City"
+    },
+    "profile": {
+      "name": "Name",
+      "theme": "Theme",
+      "locale": "Locale",
+      "save": "Save Changes",
+      "english": "English",
+      "farsi": "Farsi"
+    }
+    }
+  }
