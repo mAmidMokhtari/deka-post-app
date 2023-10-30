@@ -7,7 +7,7 @@ import { Alert, IconButton, Snackbar } from "@mui/material";
 import Context from "./context";
 
 const UserProvider: FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [username, setUsername] = useState<string | null>("");
+  const [username, setUsername] = useState<string | null>("User");
   const [openNotification, setOpenNotification] = useState(false);
 
   const handleChangeUsername = (username: string) => {
@@ -51,7 +51,7 @@ const UserProvider: FC<{ children: React.ReactNode }> = ({ children }) => {
           severity="warning"
           sx={{ width: "100%" }}
         >
-          This is a warning message!
+          Please change the username in the Profile tab
         </Alert>
       </Snackbar>
     );

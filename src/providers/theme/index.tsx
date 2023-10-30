@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 
 import { CacheProvider } from "@emotion/react";
 import { CssBaseline } from "@mui/material";
@@ -25,7 +25,7 @@ function Provider(props: { children: React.ReactNode }) {
 const ThemeProvider: FC<{
   children: React.ReactNode;
 }> = ({ children }) => {
-  const theme = createTheme({
+  const lightTheme = createTheme({
     palette: palette.light,
     typography,
     shadows,
@@ -34,6 +34,19 @@ const ThemeProvider: FC<{
     // @ts-ignore
     customShadows,
   });
+  const darkTheme = createTheme({
+    palette: {
+      mode: "dark",
+    },
+  });
+
+  const [themeMode, setThemeMode] = useState("light");
+
+  const handleThemeChange = (event: React.ChangeEvent<{ value: unknown }>) => {
+    setThemeMode(event.target.value as string);
+  };
+
+  const theme = themeMode === "dark" ? darkTheme : lightTheme;
 
   return (
     <Provider>
