@@ -1,9 +1,6 @@
-import useTranslate from "hooks/useTranslate";
 import { makeStyles } from "tss-react/mui";
 
 export const useStyles = makeStyles()((theme) => {
-  const { language } = useTranslate();
-
   return {
     root: {},
     openRoot: {
