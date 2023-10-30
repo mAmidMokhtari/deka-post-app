@@ -1,7 +1,6 @@
 import { FC } from "react";
+
 import { QueryClient, QueryClientProvider } from "react-query";
-import { createWebStoragePersistor } from "react-query/createWebStoragePersistor-experimental";
-import { persistQueryClient } from "react-query/persistQueryClient-experimental";
 
 interface IApiProviderProps {
   children?: JSX.Element;
@@ -10,18 +9,12 @@ interface IApiProviderProps {
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      cacheTime: 1000 * 60 * 60 * 24 * 30, // 30 day
+      refetchOnWindowFocus: false,
+      refetchOnReconnect: false,
+      retry: false,
+      staleTime: 5 * 60 * 1000,
     },
   },
-});
-
-const localStoragePersistor = createWebStoragePersistor({
-  storage: window.localStorage,
-});
-
-persistQueryClient({
-  queryClient,
-  persistor: localStoragePersistor,
 });
 
 const ApiProvider: FC<IApiProviderProps> = ({ children }) => {

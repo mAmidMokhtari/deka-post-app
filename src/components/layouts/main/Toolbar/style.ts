@@ -1,4 +1,4 @@
-import { makeStyles } from 'tss-react/mui';
+import { makeStyles } from "tss-react/mui";
 
 export const useStyles = makeStyles()((theme) => {
   return {
@@ -11,26 +11,22 @@ export const useStyles = makeStyles()((theme) => {
     paper: {
       position: "relative",
       whiteSpace: "nowrap",
-      backgroundColor: theme.palette.secondary.main + "!important",
-      color: theme.palette.common.white,
     },
     openPaper: {
       overflowX: "auto",
       width: "240px",
-      transition:
-        theme.transitions.create("width", {
-          easing: theme.transitions.easing.sharp,
-          duration: theme.transitions.duration.enteringScreen,
-        }) + "!important",
+      transition: theme.transitions.create("width", {
+        easing: theme.transitions.easing.sharp,
+        duration: theme.transitions.duration.enteringScreen,
+      }),
     },
     closePaper: {
       overflowX: "hidden",
       width: "50px",
-      transition:
-        theme.transitions.create("width", {
-          easing: theme.transitions.easing.sharp,
-          duration: theme.transitions.duration.leavingScreen,
-        }) + "!important",
+      transition: theme.transitions.create("width", {
+        easing: theme.transitions.easing.sharp,
+        duration: theme.transitions.duration.leavingScreen,
+      }),
     },
   };
 });

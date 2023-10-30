@@ -19,7 +19,10 @@ const UserProvider: FC<{ children: React.ReactNode }> = ({ children }) => {
   const handleCloseNotification = () => setOpenNotification(false);
 
   useEffect(() => {
-    const username = window.localStorage.getItem("username");
+    const userData = localStorage.getItem("userData");
+    const parsedUserData = userData && JSON.parse(userData);
+
+    const username = parsedUserData.username;
     if (username) return setUsername(username);
     return handleOpenNotification();
   }, []);

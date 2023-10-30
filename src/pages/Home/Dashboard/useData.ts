@@ -1,4 +1,4 @@
-import { useLayoutEffect } from "react";
+import { useEffect } from "react";
 
 import { DASHBOARD_ROUTE } from "constants/routes";
 import useMainLayout from "hooks/useMainLayout";
@@ -17,7 +17,7 @@ export const useData = () => {
     ).padStart(2, "0")}`;
   };
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     setConfig({
       pageName: DASHBOARD_ROUTE,
       breadcrumbsItems: [

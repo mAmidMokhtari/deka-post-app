@@ -2,6 +2,11 @@ import { makeStyles } from "tss-react/mui";
 
 export const useStyles = makeStyles()((theme) => {
   return {
+    wrapper: {
+      width: "70%",
+      margin: "auto",
+      paddingTop: 30,
+    },
     root: {
       width: "90%",
       display: "flex",
@@ -19,6 +24,7 @@ export const useStyles = makeStyles()((theme) => {
       justifyContent: "center",
       alignItems: "center",
       gap: theme.spacing(1),
+      textTransform: "uppercase",
     },
   };
 });

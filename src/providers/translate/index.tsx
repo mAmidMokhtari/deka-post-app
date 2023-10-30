@@ -13,15 +13,16 @@ const TranslateProvider: React.FC<{ children: React.ReactNode }> = ({
   const handleChangeLanguage = (language: "fa" | "en") => {
     setLanguage(language);
     i18n.changeLanguage(language);
-    window.localStorage.setItem("language", language);
-    document.body.dataset.direction = language === "fa" ? "rtl" : "ltr";
+    document.dir = language === "fa" ? "rtl" : "ltr";
     document.body.dataset.sidebarPosition =
       language === "fa" ? "right" : "left";
   };
 
   useEffect(() => {
-    const language = window.localStorage.getItem("language");
-    if (language) handleChangeLanguage(language as "fa" | "en");
+    const userData = localStorage.getItem("userData");
+    const parsedUserData = userData && JSON.parse(userData);
+
+    parsedUserData && handleChangeLanguage(parsedUserData.language);
   }, []);
 
   return (

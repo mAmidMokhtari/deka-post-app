@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 
-import useTranslate from "hooks/useTranslate";
 import useUser from "hooks/useUser";
 import { useTranslation } from "react-i18next";
 
@@ -11,7 +10,6 @@ import {
   InputLabel,
   MenuItem,
   Select,
-  SelectChangeEvent,
   TextField,
 } from "@mui/material";
 
@@ -20,27 +18,15 @@ import { useData } from "./useData";
 
 const Profile = () => {
   const { classes } = useStyles();
-  const { handleChangeLanguage } = useTranslate();
   const { t } = useTranslation();
-  useData();
-
   const { handleChangeUsername, username } = useUser();
-
-  const [language, setLanguage] = useState("English");
-  const [theme, setTheme] = useState("light");
-
-  const handleLanguage = (event: SelectChangeEvent) => {
-    setLanguage(event.target.value as string);
-  };
-  const handleTheme = (event: SelectChangeEvent) => {
-    setTheme(event.target.value as string);
-  };
+  const data = useData();
 
   return (
     <div className={classes.root}>
       <div className={classes.container}>
         <TextField
-          label="Username"
+          label={t("mainLayout.profile.username")}
           value={username}
           onChange={(e) => handleChangeUsername(e.target.value)}
         />
@@ -53,30 +39,14 @@ const Profile = () => {
             </InputLabel>
             <Select
               labelId="demo-simple-select-label"
-              id="demo-simple-select"
-              value={language}
+              id={data.language}
+              value={data.language}
               label="Language"
-              defaultValue="English"
-              onChange={handleLanguage}
+              defaultValue={data.language}
+              onChange={data.handleLanguage}
             >
-              <MenuItem value={t("mainLayout.profile.english")}>
-                <Button
-                  onClick={() => {
-                    handleChangeLanguage("en");
-                  }}
-                >
-                  {t("mainLayout.profile.english")}
-                </Button>
-              </MenuItem>
-              <MenuItem value={t("mainLayout.profile.farsi")}>
-                <Button
-                  onClick={() => {
-                    handleChangeLanguage("fa");
-                  }}
-                >
-                  {t("mainLayout.profile.farsi")}
-                </Button>
-              </MenuItem>
+              <MenuItem value="en">{t("mainLayout.profile.english")}</MenuItem>
+              <MenuItem value="fa">{t("mainLayout.profile.farsi")}</MenuItem>
             </Select>
           </FormControl>
         </Box>
@@ -90,35 +60,21 @@ const Profile = () => {
             <Select
               labelId="demo-simple-select-label"
               id="demo-simple-select"
-              value={theme}
+              value={data.theme}
               label="Theme"
-              defaultValue="light"
-              onChange={handleTheme}
+              defaultValue={data.theme}
+              onChange={data.handleTheme}
             >
-              <MenuItem value={t("mainLayout.profile.light")}>
-                <Button
-                  onClick={() => {
-                    ("light");
-                  }}
-                >
-                  {t("mainLayout.profile.light")}
-                </Button>
-              </MenuItem>
-              <MenuItem value={t("mainLayout.profile.dark")}>
-                <Button
-                  onClick={() => {
-                    ("dark");
-                  }}
-                >
-                  {t("mainLayout.profile.dark")}
-                </Button>
-              </MenuItem>
+              <MenuItem value="light">{t("mainLayout.profile.light")}</MenuItem>
+              <MenuItem value="dark">{t("mainLayout.profile.dark")}</MenuItem>
             </Select>
           </FormControl>
         </Box>
       </div>
       <div className={classes.container}>
-        <Button>{t("mainLayout.profile.save")}</Button>
+        <Button onClick={data.saveChangeHandler}>
+          {t("mainLayout.profile.save")}
+        </Button>
       </div>
     </div>
   );

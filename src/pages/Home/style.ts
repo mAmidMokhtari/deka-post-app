@@ -1,4 +1,4 @@
-import { makeStyles } from 'tss-react/mui';
+import { makeStyles } from "tss-react/mui";
 
 export const useStyles = makeStyles()((theme) => {
   return {
@@ -29,22 +29,12 @@ export const useStyles = makeStyles()((theme) => {
       alignItems: "center",
       marginBottom: `${theme.spacing(1)} !important`,
       padding: `${theme.spacing(2)} !important`,
-      backgroundColor: theme.palette.grey[200] + "!important",
       [theme.breakpoints.down("sm")]: {
         flexDirection: "column",
         alignItems: "flex-start",
         height: "140px",
         paddingBottom: theme.spacing(5) + "!important",
         gap: theme.spacing(1),
-      },
-    },
-    badge: {
-      cursor: "pointer",
-      "& .MuiBadge-badge": {
-        color: theme.palette.error.light,
-        border: `2px solid ${theme.palette.error.light}`,
-        // backgroundColor: theme.palette.error.light,
-        padding: theme.spacing(0.5, 0.25, 0.25, 0.25),
       },
     },
     notificationIcon: {

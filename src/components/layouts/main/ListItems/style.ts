@@ -1,47 +1,17 @@
-import { makeStyles } from 'tss-react/mui';
+import { makeStyles } from "tss-react/mui";
 
 interface ITheme {
-  isClose: boolean
+  isClose: boolean;
 }
 
-export const useStyles = makeStyles<ITheme>()((theme, {isClose}) => {
+export const useStyles = makeStyles<ITheme>()((theme, { isClose }) => {
   return {
     root: {
-      color: theme.palette.common.black,
       width: "240px",
       [theme.breakpoints.down("sm")]: { width: "100%" },
-      "& a.active": {
-        backgroundColor: theme.palette.common.white,
-        color: theme.palette.common.black + "!important",
-        "& svg": {
-          color: theme.palette.common.black + "!important",
-          fill: theme.palette.common.black + "!important",
-        },
-      },
     },
     listItem: {
-      color: theme.palette.common.white + "!important",
       cursor: "pointer",
-      "& svg": {
-        color: theme.palette.common.white + "!important",
-        fill: theme.palette.common.white + "!important",
-      },
-    },
-    listItemError: {
-      backgroundColor: theme.palette.error.main + "!important",
-      color: theme.palette.common.white + "!important",
-      "& svg": {
-        color: theme.palette.common.white + "!important",
-        fill: theme.palette.common.white + "!important",
-      },
-    },
-    listItemChildren: {
-      color: theme.palette.common.white + "!important",
-      marginRight: theme.spacing(1),
-      "& svg": {
-        color: theme.palette.common.white + "!important",
-        fill: theme.palette.common.white + "!important",
-      },
     },
     logo: {
       width: "110px",
@@ -55,7 +25,7 @@ export const useStyles = makeStyles<ITheme>()((theme, {isClose}) => {
       alignItems: "center",
     },
     loadingIcon: {
-      color: theme.palette.common.white + "!important",
+      color: theme.palette.common.white,
     },
     itemIcon: {
       display: "flex",
@@ -64,7 +34,7 @@ export const useStyles = makeStyles<ITheme>()((theme, {isClose}) => {
     },
     itemText: {
       maxWidth: "fit-content",
-      display: isClose ? "none" : "block"
-    }
+      display: isClose ? "none" : "block",
+    },
   };
 });

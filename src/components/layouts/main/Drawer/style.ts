@@ -1,16 +1,11 @@
-import { makeStyles } from 'tss-react/mui';
+import useTranslate from "hooks/useTranslate";
+import { makeStyles } from "tss-react/mui";
 
 export const useStyles = makeStyles()((theme) => {
+  const { language } = useTranslate();
+
   return {
-    root: {
-      "& a": {
-        color: theme.palette.common.white,
-        "&.active": {
-          backgroundColor: theme.palette.common.white,
-          color: theme.palette.secondary.main,
-        },
-      },
-    },
+    root: {},
     openRoot: {
       width: "240px",
       [theme.breakpoints.down("sm")]: { width: "100%" },
@@ -31,43 +26,28 @@ export const useStyles = makeStyles()((theme) => {
     paper: {
       position: "relative",
       whiteSpace: "nowrap",
-      backgroundColor: theme.palette.primary.light + "!important",
-      color: theme.palette.common.white,
     },
     openPaper: {
       overflowX: "auto",
       width: "240px",
-      // transition:
-      //   theme.transitions.create("width", {
-      //     easing: theme.transitions.easing.sharp,
-      //     duration: theme.transitions.duration.enteringScreen,
-      //   }) + "!important",
       [theme.breakpoints.down("sm")]: {
         width: "100%",
         opacity: 1,
-        transition:
-          theme.transitions.create("opacity", {
-            easing: theme.transitions.easing.sharp,
-            duration: theme.transitions.duration.leavingScreen,
-          }) + "!important",
+        transition: theme.transitions.create("opacity", {
+          easing: theme.transitions.easing.sharp,
+          duration: theme.transitions.duration.leavingScreen,
+        }),
       },
     },
     closePaper: {
       overflowX: "hidden",
-      width: "50px",
-      // transition:
-      //   theme.transitions.create("width", {
-      //     easing: theme.transitions.easing.sharp,
-      //     duration: theme.transitions.duration.leavingScreen,
-      //   }) + "!important",
       [theme.breakpoints.down("sm")]: {
         width: "0%",
         opacity: 0,
-        transition:
-          theme.transitions.create("opacity", {
-            easing: theme.transitions.easing.sharp,
-            duration: theme.transitions.duration.leavingScreen,
-          }) + "!important",
+        transition: theme.transitions.create("opacity", {
+          easing: theme.transitions.easing.sharp,
+          duration: theme.transitions.duration.leavingScreen,
+        }),
       },
     },
     toolbarMobile: {
@@ -83,7 +63,6 @@ export const useStyles = makeStyles()((theme) => {
         width: "100%",
         height: "30px!important",
         minHeight: "30px!important",
-        backgroundColor: theme.palette.secondary.main,
       },
     },
     toolbarMobileOpen: {

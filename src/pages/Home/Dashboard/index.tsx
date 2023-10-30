@@ -13,16 +13,12 @@ const Dashboard = () => {
   const { classes } = useStyles();
   return (
     <div className={classes.root}>
-      <Typography variant="h1" color="common.black">
-        {data.displayTime()}
-      </Typography>
+      <Typography variant="h1">{data.displayTime()}</Typography>
       <div className={classes.userContainer}>
-        <Typography variant="h2" color="common.black">
+        <Typography variant="h2">
           {t("mainLayout.dashboard.good morning")}
         </Typography>
-        <Typography variant="h2" color="common.black">
-          {data.username}
-        </Typography>
+        <Typography variant="h2">{data.username}</Typography>
       </div>
     </div>
   );

@@ -18,7 +18,7 @@ const Todo = () => {
   return (
     <Card classes={{ root: classes.root }}>
       <div className={classes.title}>
-        <Typography variant="h1" textAlign="center">
+        <Typography variant="h4" textAlign="center">
           {t("mainLayout.todo.todo list")}
         </Typography>
         {!data.isAddTodo ? (
@@ -48,7 +48,7 @@ const Todo = () => {
                 className={classes.input}
               />
             ) : (
-              <Typography variant="h3">
+              <Typography variant="h4">
                 {item.title} #{index + 1}
               </Typography>
             )}

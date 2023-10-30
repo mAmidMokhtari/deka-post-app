@@ -8,7 +8,7 @@
         "alert": "Please change the username in the Profile tab"
       },
     "dashboard": {
-        "good morning": "Good morning, ",
+        "good morning": "Good Morning, ",
         "user": "User"
     },
     "todo": {
@@ -16,10 +16,10 @@
       "please insert note": "Please Insert Note..."
     },
     "weather": {
-      "enter city": "Enter City"
+      "city": "City"
     },
     "profile": {
-      "name": "Name",
+      "username": "Username",
       "theme": "Theme",
       "language": "Language",
       "save": "Save Changes",

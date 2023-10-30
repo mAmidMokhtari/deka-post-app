@@ -1,4 +1,4 @@
-import { ChangeEvent, useLayoutEffect, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 
 import { TODO_ROUTE } from "constants/routes";
 import useMainLayout from "hooks/useMainLayout";
@@ -61,7 +61,7 @@ export const useData = () => {
     setNewTodo("");
   };
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     setConfig({
       pageName: TODO_ROUTE,
       breadcrumbsItems: [

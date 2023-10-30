@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 
 import { CacheProvider } from "@emotion/react";
 import { CssBaseline } from "@mui/material";
@@ -8,12 +8,9 @@ import {
   ThemeProvider as MuiThemeProvider,
 } from "@mui/material/styles";
 
-import breakpoints from "./breakpoints";
+import context from "./context";
 import createEmotionCache from "./createEmotionCache";
 import GlobalStyles from "./globalStyles";
-import palette from "./palette";
-import shadows, { customShadows } from "./shadows";
-import typography from "./typography";
 
 // Create rtl cache
 const cache = createEmotionCache();
@@ -25,41 +22,46 @@ function Provider(props: { children: React.ReactNode }) {
 const ThemeProvider: FC<{
   children: React.ReactNode;
 }> = ({ children }) => {
-  const lightTheme = createTheme({
-    palette: palette.light,
-    typography,
-    shadows,
-    breakpoints,
-    // direction: "rtl",
-    // @ts-ignore
-    customShadows,
-  });
   const darkTheme = createTheme({
     palette: {
       mode: "dark",
     },
   });
+  const lightTheme = createTheme({
+    palette: {
+      mode: "light",
+    },
+  });
 
-  const [themeMode, setThemeMode] = useState("light");
+  const [theme, setTheme] = useState<"light" | "dark">("light");
 
-  const handleThemeChange = (event: React.ChangeEvent<{ value: unknown }>) => {
-    setThemeMode(event.target.value as string);
+  const handleChangeTheme = (themeMode: "light" | "dark") => {
+    setTheme(themeMode);
   };
 
-  const theme = themeMode === "dark" ? darkTheme : lightTheme;
+  useEffect(() => {
+    const userData = localStorage.getItem("userData");
+    const parsedUserData = userData && JSON.parse(userData);
+
+    parsedUserData && handleChangeTheme(parsedUserData.theme);
+  }, []);
+
+  const muiTheme: any = theme === "dark" ? darkTheme : lightTheme;
 
   return (
-    <Provider>
-      <StyledEngineProvider injectFirst>
-        <MuiThemeProvider theme={theme}>
-          <Provider>
-            <CssBaseline />
-            <GlobalStyles />
-            {children}
-          </Provider>
-        </MuiThemeProvider>
-      </StyledEngineProvider>
-    </Provider>
+    <context.Provider value={{ handleChangeTheme, theme }}>
+      <Provider>
+        <StyledEngineProvider injectFirst>
+          <MuiThemeProvider theme={muiTheme}>
+            <Provider>
+              <CssBaseline />
+              <GlobalStyles />
+              {children}
+            </Provider>
+          </MuiThemeProvider>
+        </StyledEngineProvider>
+      </Provider>
+    </context.Provider>
   );
 };
 

@@ -16,10 +16,10 @@
     "please insert note": "لطفا متن را وارد کنید..."
   },
   "weather": {
-    "enter city": "انتخاب شهر"
+    "city": "شهر"
   },
   "profile": {
-    "name": "نام",
+    "username": "نام کاربری",
     "theme": "تم",
     "language": "زبان",
     "save": "ذخیره",

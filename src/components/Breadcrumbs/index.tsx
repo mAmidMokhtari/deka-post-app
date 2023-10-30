@@ -33,24 +33,14 @@ export const Breadcrumbs: FC<IBreadcrumbs> = ({ items = [] }) => {
       >
         {items.map((item, index) => {
           if (item.isLoading)
-            return (
-              <CircularProgress
-                className={classes.loadingIcon}
-                color="inherit"
-              />
-            );
+            return <CircularProgress className={classes.loadingIcon} />;
           if (!item.href)
-            return (
-              <Typography key={item.title} color="text.primary">
-                {item.title}
-              </Typography>
-            );
+            return <Typography key={item.title}>{item.title}</Typography>;
           else
             return (
               <Link
                 key={item.title}
                 // underline="hover"
-                color="inherit"
                 to={item.href || "#"}
                 onClick={() => {
                   item.onClick && item.onClick();
