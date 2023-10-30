@@ -1,4 +1,8 @@
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useLayoutEffect, useState } from "react";
+
+import { TODO_ROUTE } from "constants/routes";
+import useMainLayout from "hooks/useMainLayout";
+import { useTranslation } from "react-i18next";
 
 interface ITodo {
   id: string;
@@ -6,6 +10,8 @@ interface ITodo {
 }
 
 export const useData = () => {
+  const { setConfig } = useMainLayout();
+  const { t } = useTranslation();
   const [todo, setTodo] = useState<ITodo[]>([]);
   const [isAddTodo, setIsAddTodo] = useState(false);
   const [newTodo, setNewTodo] = useState("");
@@ -54,6 +60,17 @@ export const useData = () => {
     setIsAddTodo(false);
     setNewTodo("");
   };
+
+  useLayoutEffect(() => {
+    setConfig({
+      pageName: TODO_ROUTE,
+      breadcrumbsItems: [
+        {
+          title: t("mainLayout.sidebar.todo"),
+        },
+      ],
+    });
+  }, []);
 
   return {
     todo,

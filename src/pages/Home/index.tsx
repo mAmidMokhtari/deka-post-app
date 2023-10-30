@@ -23,12 +23,12 @@ const HomeLayout: FC = () => {
   });
 
   const renderBreadcrumbs = () => {
-    if (config.breadcrumbsItems.length)
-      return (
-        <div className={classes.container}>
-          <Breadcrumbs items={config.breadcrumbsItems} />
-        </div>
-      );
+    if (config.breadcrumbsItems.length < 1) return null;
+    return (
+      <div className={classes.container}>
+        <Breadcrumbs items={config.breadcrumbsItems} />
+      </div>
+    );
   };
 
   return (

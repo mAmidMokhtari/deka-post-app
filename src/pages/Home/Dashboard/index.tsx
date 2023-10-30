@@ -21,7 +21,7 @@ const Dashboard = () => {
           {t("mainLayout.dashboard.good morning")}
         </Typography>
         <Typography variant="h2" color="common.black">
-          {t("mainLayout.dashboard.user")}
+          {data.username}
         </Typography>
       </div>
     </div>
